@@ -1,1 +1,1 @@
-# comic
+# Bounty Hunter Space Besties
