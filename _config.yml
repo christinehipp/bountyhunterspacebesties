@@ -24,7 +24,7 @@ description: > # this means to ignore newlines until "baseurl:"
     find themselves in over their heads when the agree to clear the name of a
     shapeshifter accused of murdering his magical peers. Hilarity ensues.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://bountyhunterspacebesties.com/" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://bountyhunterspacebesties.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 appID: 487393568131319
