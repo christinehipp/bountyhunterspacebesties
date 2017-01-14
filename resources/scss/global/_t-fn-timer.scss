@@ -1,0 +1,26 @@
+///
+/// Retrieve timer value from sass map $timer
+///
+/// @param {string} $name - return timer value from $timer.
+///
+/// @require {variable} $timer
+///
+/// @ignore
+/// [1] Check if $name exists in $timer.
+/// [2] If not pass an error.
+///
+@function timer($name: 'normal') {
+
+    // [1]
+    @if map-has-key($timer-config, $name) {
+
+        @return map-get($timer-config, $name);
+
+    } @else {
+
+        @warn "`#{$name}` does not have a value set in `#{$timer-config}`. (Keys: #{map-keys($timer-config)})"; // [2]
+        @return null;
+
+    }
+
+}

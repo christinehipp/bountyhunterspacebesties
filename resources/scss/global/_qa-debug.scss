@@ -1,0 +1,148 @@
+///
+/// DEBUG
+///
+/// Choose if you want specific errors or all.
+///
+$debug: (
+    'all':                      false,
+    'deprecated-selectors':     false,
+    'modifier-without-block':   false,
+    'empty-href':               false
+);
+
+
+
+
+
+$message: 'WARNING: ';
+
+
+
+
+// Create a placeholder to DRY out any of our shared styles.
+%debug-shared-styles {
+    outline: 1px solid #f00;
+
+    &:after {
+        display: none;
+        width: 100%;
+        padding: 5px 10px;
+        background: #f00;
+        color: #fff;
+        font-family: sans-serif;
+        font-size: 14px;
+        line-height: 1.5;
+        font-weight: bold;
+        position: fixed;
+        left: 0;
+        top:  0;
+        z-index: 100000000;
+    }
+
+    &:hover {
+        outline: 2px solid #f00;
+
+        &:after {
+            display: block;
+        }
+
+    }
+
+}
+
+
+
+
+@if (map-get($debug, 'all') or map-get($debug, 'deprecated-selectors')) {
+
+
+    ///
+    /// List of selectors that we’re deprecating (and their replacements, if any).
+    ///
+    /// Example $deprecated-selectors: (
+    ///     '.foo': null,
+    ///     '.error': '.has-error'
+    /// );
+    ///
+    $deprecated-selectors: (
+        '.o-layout': '.o-grid',
+        '.o-layout__item': '.o-grid__column'
+    );
+
+
+    @each $selector, $replacement in $deprecated-selectors {
+
+        #{$selector} {
+
+            // Share the cosmetic styles rather than repeat them per selector.
+            @extend %debug-shared-styles;
+
+            &:after {
+                @if ($replacement != null) {
+                    /**
+                     * If we have a replacement selector, tell people what it is.
+                     */
+                    content: $message + 'Selector `#{$selector}` is deprecated, use `#{$replacement}` instead.';
+                } @else {
+                    /**
+                     * If we have no replacement, just tell people to stop using the
+                     * selector.
+                     */
+                    content: $message + 'Selector `#{$selector}` is deprecated.';
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+@if (map-get($debug, 'all') or map-get($debug, 'modifier-without-block')) {
+
+
+    ///
+    /// If an element has a class attribute containing two hyphens but no space
+    /// (i.e. only one class is being used, and it’s a Modifier), provide visual
+    /// feedback in the DOM.
+    ///
+    /// N.B. This isn’t bulletproof: `class="foo--bar baz"` would pass, as would
+    /// `class=" foo--bar"`. Use with a pinch of salt.
+    ///
+    [class*="--"]:not([class*=" "]) {
+        @extend %debug-shared-styles;
+
+        &:after {
+            content: $message + 'Can not have a Modifier (i.e. `.' attr(class) '`) without a Block.';
+        }
+
+    }
+
+
+}
+
+
+
+
+
+@if (map-get($debug, 'all') or map-get($debug, 'empty-href')) {
+
+
+    ///
+    /// Highlight an anchor tag that has an empty href attribute.
+    ///
+    [href=""] {
+        @extend %debug-shared-styles;
+
+        &:after {
+            content: $message + 'No value for the `href` attribute provided. Consider using a <button> if this is for Javascript.';
+        }
+
+    }
+
+
+
+}

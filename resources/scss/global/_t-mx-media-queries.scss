@@ -1,0 +1,77 @@
+///
+/// Media Queries
+///
+/// @param {string} $name - $key to use from $breakpoints-extended-config
+///
+/// @require {variable} $breakpoints-extended-config
+///
+@mixin media($name) {
+
+    @if map-has-key($breakpoints-master-config, $name) {
+        @media #{map-get($breakpoints-master-config, $name)} {
+            @content;
+        }
+    } @else {
+        @warn 'Couldn\'t find a breakpoint named `#{$name}`.';
+    }
+
+}
+
+
+
+
+
+///
+// Alias the media mixin.
+///
+@mixin breakpoint($args...) {
+
+    @warn '`@include breakpoint()` and `@include bp()` is depricated and will be removed. Please use @media';
+
+    @include media($args...) {
+        @content;
+    }
+
+}
+
+
+@mixin bp($args...) {
+    @include breakpoint($args...) {
+        @content;
+    }
+}
+
+
+
+
+
+///
+/// Loop through the breakpoints (layout/extended), output the parent scope and
+/// nest the content in each media query. The mixin must be nested in the class
+/// you wish to generate all the breakpoint modifiers for.
+///
+/// @param {boolean} $extended - Should the mixin use the
+/// $breakpoints-extended-config
+///
+@mixin loop-breakpoints($extended: false) {
+
+    // Output a non-namespaced version. So we don't have to repeat ourselves.
+    & {
+        @content;
+    }
+
+    // Check which breakpoint config we're using.
+    $_loop-breakpoints-config: if($extended, $breakpoints-extended-config, $breakpoints-layout-config);
+
+    // Loop through the breakpoints.
+    @each $breakpoint, $media-querie in $_loop-breakpoints-config {
+
+        // Append the `@breakpoint` namespace
+        &\@#{$breakpoint} {
+            @include media($breakpoint) {
+                @content;
+            }
+        }
+    }
+
+}

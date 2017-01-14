@@ -1,0 +1,86 @@
+/*------------------------------------*\
+    #LOGOS
+\*------------------------------------*/
+
+//
+// Map of logos, good for building out several at a time by passing a list of
+// properties to this configuration map. They have a single initial size and
+// can set additional sizes based on provided breakpoints and scales.
+$logos-config: (
+    'sample': (
+        'width': 150px,
+        'height': 75px,
+        'url': 'http://satyr.io/150x75?text=Logo'
+    ),
+    'responsive': (
+        'width':  200px,
+        'height': 120px,
+        'url': 'http://satyr.io/200x120?text=Logo',
+        'breakpoints': (
+            'initial': 0.4,
+            'sm':      0.75,
+            'md':      1
+        )
+    )
+);
+
+
+
+
+
+/**
+ * Logo base class. Applies shared properties for all logos.
+ *
+ * [1] Relies on background-size to shrink large logos to smaller sizes.
+ */
+
+.c-logo {
+    @include hide-text();
+    display: inline-block;
+    vertical-align: middle;
+    background: center no-repeat;
+    background-size: contain; // [1]
+}
+
+
+//
+// Loop through the logos and generate modifiers.
+//
+@each $logo, $logo-config in $logos-config {
+
+    // Logo's properties
+    $logo-width:  map-get($logo-config, 'width');
+    $logo-height: map-get($logo-config, 'height');
+    $logo-url:    map-get($logo-config, 'url');
+
+    // Does the logo have a breakpoints map
+    $logo-breakpoints-config: if(map-has-key($logo-config, 'breakpoints'), map-get($logo-config, 'breakpoints'), false);
+
+    $logo-scale-initial: if($logo-breakpoints-config, map-get($logo-breakpoints-config, 'initial'), 1);
+
+    .c-logo--#{$logo} {
+        width:  $logo-width * $logo-scale-initial;
+        height: $logo-height * $logo-scale-initial;
+        background-image: url($logo-url);
+
+        // Check is a breakpoints list is provided
+        @if $logo-breakpoints-config {
+
+            @each $logo-breakpoint, $logo-scale-breakpoint in $logo-breakpoints-config {
+
+                @if $logo-breakpoint != 'initial' {
+
+                    @include media(#{$logo-breakpoint}) {
+                        width:  round($logo-width * $logo-scale-breakpoint);
+                        height: round($logo-height * $logo-scale-breakpoint);
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

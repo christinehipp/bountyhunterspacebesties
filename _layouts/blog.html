@@ -1,0 +1,34 @@
+{% include header.html %}
+
+<div id="primary" class="o-page">
+    <main id="main" class="o-container" role="main">
+        <article class="o-island c-scoped-content">
+            {{ content }}
+        </article>
+
+        {% for post in site.posts %}
+
+            <article id="post-267" class="o-island">
+            	<header class="entry-header">
+                    <a href="{{ post.url }}">
+                		<h3 class="c-heading-title u-script u-close">{{ post.title }}</h3>
+                    </a>
+            	</header><!-- .entry-header -->
+
+            	<div class="entry-content">
+
+                    {% if post.description %}
+                        <p>{{ post.description }}</p>
+                    {% endif %}
+
+                    <p><a href="{{ post.url }}">Full Post</a></p>
+            	</div><!-- .entry-content -->
+
+            </article>
+
+        {% endfor %}
+
+    </main>
+</div>
+
+{% include footer.html %}

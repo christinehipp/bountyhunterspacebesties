@@ -1,0 +1,27 @@
+/*------------------------------------*\
+    #PANEL
+\*------------------------------------*/
+
+.c-panel {
+    position: absolute;
+    top:  0;
+    left: 0;
+    margin: 0;
+    transition: 0.3s;
+}
+
+.animating-panel-enter {
+  opacity: 0.01;
+}
+
+.animating-panel-enter.animating-panel-enter-active {
+  opacity: 1;
+}
+
+.animating-panel-leave {
+  opacity: 1;
+}
+
+.animating-panel-leave.animating-panel-leave-active {
+  opacity: 0.01;
+}

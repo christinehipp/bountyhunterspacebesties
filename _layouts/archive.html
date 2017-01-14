@@ -1,0 +1,33 @@
+{% include header.html %}
+
+<div id="primary" class="o-page">
+    <main id="main" class="o-container" role="main">
+
+        {% for comic in site.comic %}
+
+            {% assign comicData = site.data.comics[comic.comic] %}
+
+            <h3 class="c-heading-section">{{ comic.title }}</h3>
+
+            <div class="o-grid o-island">
+
+                {% for comicPage in comicData %}
+
+                    <div class="o-grid__column o-grid__column--5 o-grid__column--3@sm">
+                        <a href="{{ comic.url }}#{{forloop.index}}" class="c-comic-thumb">
+                            <div class="o-aspect o-aspect--comic u-flush">
+                                <img src="{{ "/assets/img/comics" | relative_url }}/{{ comic.comic }}/{{ comicPage.image.thumbnail }}" class="c-comic-thumb__cover-img" alt="Chapter 1">
+                            </div>
+                        </a>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endfor %}
+
+    </main>
+</div>
+
+{% include footer.html %}

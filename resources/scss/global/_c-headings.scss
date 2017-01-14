@@ -1,0 +1,50 @@
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+
+.c-heading-page {
+    font-size: rem(22px);
+    line-height: 1.2;
+
+    @include media('sm') {
+        font-size: rem(30px);
+    }
+
+}
+
+.c-heading-section {
+    font-size: rem(20px);
+    line-height: 1.2;
+
+    @include media('sm') {
+        font-size: rem(26px);
+    }
+
+}
+
+.c-heading-title {
+    font-size: rem(18px);
+    line-height: 1.2;
+
+    @include media('sm') {
+        font-size: rem(22px);
+    }
+
+}
+
+.c-heading-subtitle {
+    font-size: rem(16px);
+    line-height: 1.2;
+
+    @include media('sm') {
+        font-size: rem(18px);
+    }
+
+}
+
+.c-heading-note {
+    font-size: rem(14px);
+    line-height: 1.2;
+    font-weight: bold;
+    text-transform: uppercase;
+}

@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    #SCOPED CONTENT
+\*------------------------------------*/
+
+.c-scoped-content {
+// scss-lint:disable all
+
+    h1 {
+        font-size: rem(36px);
+    }
+
+    h2 {
+        font-size: rem(30px);
+    }
+
+    h3 {
+        font-size: rem(24px);
+    }
+
+    h4 {
+        font-size: rem(18px);
+    }
+
+    h5 {
+        font-size: rem(14px);
+    }
+
+    h6 {
+        font-size: rem(12px);
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .alignnone {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .left {
+        float: left;
+        margin-right: spacer(2);
+        max-width: 33%;
+    }
+
+    .right {
+        float: right;
+        margin-left: spacer(2);
+        max-width: 33%;
+    }
+
+    .size-large {
+        max-width: 50%;
+    }
+
+    table {
+        margin-bottom: spacer(1);
+        width: 100%;
+        text-align: left;
+    }
+
+    thead {
+        background: fade-out(#fff, 0.9);
+        border-bottom: 1px solid fade-out(#fff, 0.75);
+    }
+
+    th, td {
+        padding: spacer(0.5);
+        background: fade-out(#fff, 0.9);
+    }
+
+
+}

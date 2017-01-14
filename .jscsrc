@@ -1,0 +1,10 @@
+{
+    "preset": "wordpress",
+    "fileExtensions": [ ".js" ],
+    "excludeFiles": [
+    	"js/**.min.js"
+    ],
+    "esnext": true,
+    "preset": "yandex",
+    "disallowMultipleLineBreaks": null
+}

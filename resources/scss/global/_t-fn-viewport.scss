@@ -1,0 +1,12 @@
+///
+/// Assign viewport units based of a pixel value assuming a viewport size.
+///
+/// @param {string} $px - Size we want the equivalent of.
+/// @param {string} $viewport - The size the viewport will be when $px matches
+/// it's target.
+///
+@function vw($px, $viewport: 1600px) {
+
+    @return $px / $viewport * 100vw;
+
+}

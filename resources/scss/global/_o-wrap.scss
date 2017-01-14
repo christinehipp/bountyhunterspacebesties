@@ -1,0 +1,11 @@
+/*------------------------------------*\
+    #WRAP
+\*------------------------------------*/
+
+/**
+ * A simple wrapper that crops all content that bleeds out of it
+ * Usefull for preventing scrolling on the body.
+ */
+.o-wrap {
+    overflow: hidden;
+}

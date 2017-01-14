@@ -1,0 +1,18 @@
+/*------------------------------------*\
+    #COMIC HEADER
+\*------------------------------------*/
+
+
+.c-comic-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-comic-header__block {
+
+    &:not(:last-child) {
+        padding-right: spacer(1);
+    }
+
+}

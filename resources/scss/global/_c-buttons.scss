@@ -1,0 +1,65 @@
+/*------------------------------------*\
+    #BUTTONS
+\*------------------------------------*/
+
+/**
+ * Base button class, extended by modifiers.
+ */
+.c-btn {
+    display: inline-flex;
+    cursor: pointer;
+    padding: em(10px) em(10px);
+    border: 0;
+    background: #888;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    align-items: center;
+    transition: timer('fast');
+
+    @include link-states() {
+        text-decoration: none;
+    }
+
+    &:hover,
+    &.is-active, &.is-active:hover {
+        filter: brightness(110%);
+    }
+
+    &.is-disabled, &.is-disabled:hover {
+        visibility: hidden;
+    }
+
+    * {
+        margin: auto;
+    }
+
+}
+
+
+
+/**
+ * Modifiers for the buttons
+ */
+.c-btn--primary {
+    background: color('primary');
+    color: #fff;
+}
+
+
+.c-btn--tall {
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.c-btn--square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+}

@@ -1,0 +1,102 @@
+/*------------------------------------*\
+    #FORM GROUP
+\*------------------------------------*/
+
+/**
+ * A form group block
+ */
+.c-form-group {
+    margin-bottom: spacer(0.5);
+}
+
+
+
+
+
+.c-form-group__label {
+    display: block;
+    cursor: pointer;
+    padding: spacer(0.25) 0;
+    transition: color timer('fast');
+
+    .c-form-group.has-error & {
+        color: #f00;
+    }
+
+}
+
+
+
+
+
+/**
+ * Form group inputs
+ *
+ * [1] When the form input is nested in a comment, like with a radio button or
+ * checkbox, set the input to display inline with the label's text.
+ */
+.c-form-group__input {
+    display: block;
+    padding: em(10px);
+    margin-bottom: spacer(0.5);
+    width: 100%;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    line-height: 1.2;
+    transition: border timer('fast');
+
+    .c-form-group__label & {
+        margin: 0 spacer(0.25) 0 0;
+    }
+
+    .c-form-group.has-error & {
+        border-color: #f00;
+    }
+
+
+}
+
+
+.c-form-group__input--inline {
+    display: inline-block;
+    width: auto;
+}
+
+
+
+
+
+/**
+ * Generic text block to add text after a field, used with validation elements.
+ */
+.c-form-group__help-block {
+    display: block;
+    font-size: em(12px);
+    margin: 0 0 spacer(1);
+}
+
+
+
+
+
+/**
+ * Validation element to be used with help-block's. Behavior classes on the
+ * parent determine what type of validation it is.
+ */
+.c-form-group__validation {
+    display: block;
+    padding: em(10px);
+    border: 1px solid color('grey', '25');
+    background-color: lighten(color('grey', '25'), 15%);
+    color: color('grey');
+    font-weight: bold;
+    position: relative;
+    transition: timer('fast');
+
+    .c-form-group.has-error & {
+        border-color: #f00;
+        background-color: lighten(#f00, 15%);
+        color: #fff;
+    }
+
+}

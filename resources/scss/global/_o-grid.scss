@@ -1,0 +1,235 @@
+/*------------------------------------*\
+    #GRID
+\*------------------------------------*/
+
+///
+// Grid Configuration
+//
+// [1] Number of columns in the grid layout
+// [2] Breakpoints from '$breakpoints-config' to build the grid system with.
+//     Only include the ones you use. Use 'deprecated-selectors' in qa-debug to
+//     test when removing them.
+// [3] Column gutters, anything additional items other than `initial` builds
+//     out modifier classes
+// [4] Generate offset modifier classes for layout items that push content to
+//     the right as if the set number of columns was to the left of it.
+// [5] Generate source ordering modifier classes for layout items so you can
+//     swap the stacking on mobile verses desktop.
+///
+
+$grid-config: (
+    'columns':       15,
+    'breakpoints': (
+        'xs',
+        'sm',
+        'md',
+        'lg'
+    ),
+    'gutters': (
+        'initial':   20px
+    ),
+    'offsets':       true,
+    'push-and-pull': false
+);
+
+
+// Store $grid-config map as variables...
+$grid-breakpoints:      map-get($grid-config, 'breakpoints');
+$grid-gutters:          map-get($grid-config, 'gutters');
+$grid-gutters-initial:  map-get($grid-gutters, 'initial');
+$grid-columns:          map-get($grid-config, 'columns');
+$grid-offsets:          map-get($grid-config, 'offsets');
+$grid-push-and-pull:    map-get($grid-config, 'push-and-pull');
+
+
+
+
+
+/**
+ * Layout row
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
+.o-grid {
+    @include clearfix;
+    margin-right: neg(quarter($grid-gutters-initial));
+    margin-left:  neg(quarter($grid-gutters-initial));
+
+    @include media(md) {
+        margin-right: neg(halve($grid-gutters-initial));
+        margin-left:  neg(halve($grid-gutters-initial));
+    }
+
+}
+
+// [1]
+@each $grid-gutter, $grid-gutter-value in $grid-gutters {
+
+    // Skip the default value.
+    @if ($grid-gutter != 'default') {
+
+        .o-grid--#{$grid-gutter} {
+            margin-right:  neg(halve($grid-gutter-value));
+            margin-left:   neg(halve($grid-gutter-value));
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * A layout item, used like a column
+ *
+ * [1] Additional modifier classes for layout gutters.
+ */
+.o-grid__column {
+    position: relative;
+    padding-right:  quarter($grid-gutters-initial);
+    padding-left:   quarter($grid-gutters-initial);
+    width: 100%;
+    min-height: 1px;
+    float: left;
+
+    @include media(md) {
+        padding-right:  halve($grid-gutters-initial);
+        padding-left:   halve($grid-gutters-initial);
+    }
+
+    // [1]
+    @each $grid-gutter, $grid-gutter-value in $grid-gutters {
+
+        // Skip the default value.
+        @if ($grid-gutter != 'default') {
+
+            .o-grid--#{$grid-gutter} > & {
+                padding-right:  halve($grid-gutter-value);
+                padding-left:   halve($grid-gutter-value);
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * Layout Columns
+ */
+.o-grid__column--half {
+    width: 50%;
+}
+
+@for $grid-item-span from 1 through $grid-columns {
+
+    .o-grid__column--#{$grid-item-span} {
+        width: (100% / $grid-columns) * $grid-item-span;
+    }
+
+}
+
+
+@each $breakpoint in $grid-breakpoints {
+
+    @include media($breakpoint) {
+
+        .o-grid__column--half\@#{$breakpoint} {
+            width: 50%;
+        }
+
+        @for $grid-item-span from 1 through $grid-columns {
+
+            .o-grid__column--#{$grid-item-span}\@#{$breakpoint} {
+                width: (100% / $grid-columns) * $grid-item-span;
+            }
+
+        }
+
+    }
+
+}
+
+
+
+// Conditionally output layout offsets.
+@if $grid-offsets {
+
+    /**
+     * Offset modifiers for layout items.
+     */
+    @for $grid-item-span from 1 through $grid-columns {
+
+        .o-grid__column--offset-#{$grid-item-span} {
+            margin-left: (100% / $grid-columns) * $grid-item-span;
+        }
+
+    }
+
+    @each $breakpoint in $grid-breakpoints {
+
+        @include media($breakpoint) {
+
+            @for $grid-item-span from 1 through $grid-columns {
+
+                .o-grid__column--offset-#{$grid-item-span}\@#{$breakpoint} {
+                    margin-left: (100% / $grid-columns) * $grid-item-span;
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+
+
+
+
+// Conditionally output layout source ordering.
+@if $grid-push-and-pull {
+
+    /**
+     * Push and Pull modifiers for layout items.
+     */
+    @for $grid-item-span from 1 through $grid-columns {
+
+        .o-grid__column--push-#{$grid-item-span} {
+            left: (100% / $grid-columns) * $grid-item-span;
+        }
+
+        .o-grid__column--pull-#{$grid-item-span} {
+            left: neg((100% / $grid-columns) * $grid-item-span);
+        }
+
+    }
+
+    @each $breakpoint in $grid-breakpoints {
+
+        @include media($breakpoint) {
+
+            @for $grid-item-span from 1 through $grid-columns {
+
+                .o-grid__column--push-#{$grid-item-span}\@#{$breakpoint} {
+                    left: (100% / $grid-columns) * $grid-item-span;
+                }
+
+                .o-grid__column--pull-#{$grid-item-span}\@#{$breakpoint} {
+                    left: neg((100% / $grid-columns) * $grid-item-span);
+                }
+
+            }
+
+        }
+
+    }
+
+}

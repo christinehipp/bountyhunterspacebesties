@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #PAGING
+\*------------------------------------*/
+
+.c-paging {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+
+    li {
+        flex-grow: 1;
+        width: 33%;
+    }
+
+}

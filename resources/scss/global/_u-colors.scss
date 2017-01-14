@@ -1,0 +1,38 @@
+/*------------------------------------*\
+    #COLOR UTILITES
+\*------------------------------------*/
+
+// Generate color classes for each color in $color-utilites
+// Thid implementation doesn't support the color variations.
+$color-utilities-config: (
+    'link',
+    'grey',
+    'facebook',
+    'twitter',
+    'tumblr'
+);
+
+
+/**
+ * Color utilities to force a specific color.
+ */
+@each $color in $color-utilities-config {
+
+    .u-color-#{$color} {
+        color: color($color);
+    }
+
+}
+
+
+
+/**
+ * Color utilities to force a specific color.
+ */
+@each $color in $color-utilities-config {
+
+    .u-bg-#{$color} {
+        background: color($color);
+    }
+
+}

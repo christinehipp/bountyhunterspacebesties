@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    #NAVIGATION
+\*------------------------------------*/
+
+/**
+ * Navigation list
+ */
+.c-nav {
+    background: #181c1f;
+    font-size: em(12px);
+    font-weight: bold;
+    text-transform: uppercase;
+
+    @include media('sm') {
+        font-size: em(20px);
+    }
+
+    @include media('lg') {
+        font-size: em(24px);
+    }
+
+}
+
+.menu {
+    @include list-unstyled();
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+
+
+/**
+ * Navigation List item
+ *
+ * [1] Stateful 'current' version of navigation item.
+ */
+.menu-item,
+.c-nav__item {
+    flex-grow: 1;
+    display: block;
+    padding: 3px;
+}
+
+
+
+
+
+/**
+ * Navigation link
+ */
+.c-nav__link {
+    display: block;
+    color: color('link');
+}
+
+.menu-item a {
+    display: block;
+    padding: 10px 0;
+    width: 100%;
+    color: color('link');
+
+    @include media('sm') {
+        padding: 10px;
+    }
+
+    @include link-states() {
+        color: #fff;
+        text-decoration: none;
+    }
+
+}
+
+.current-menu-item a {
+    color: #fff;
+}

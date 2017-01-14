@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    #CUSTOM FONTS
+\*------------------------------------*/
+
+/**
+ * List custom fonts
+ */
+
+// Example
+@font-face {
+    font-family: 'Infinium';
+    src: url('../fonts/infinium_guardian_caps-webfont.eot');
+    src: url('../fonts/infinium_guardian_caps-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/infinium_guardian_caps-webfont.woff2') format('woff2'),
+         url('../fonts/infinium_guardian_caps-webfont.woff') format('woff'),
+         url('../fonts/infinium_guardian_caps-webfont.ttf') format('truetype'),
+         url('../fonts/infinium_guardian_caps-webfont.svg#infinium_guardian_capsregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    text-transform: uppercase;
+}
+
+
+@font-face {
+    font-family: 'Infinium';
+    src: url('../fonts/infinium_guardian-webfont.eot');
+    src: url('../fonts/infinium_guardian-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/infinium_guardian-webfont.woff2') format('woff2'),
+         url('../fonts/infinium_guardian-webfont.woff') format('woff'),
+         url('../fonts/infinium_guardian-webfont.ttf') format('truetype'),
+         url('../fonts/infinium_guardian-webfont.svg#infinium_guardianregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

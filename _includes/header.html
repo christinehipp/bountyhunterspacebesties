@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>{{ page.title }} Bounty Hunter Space Besties</title>
+
+        <meta property="og:title" content="{{ site.title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ site.url }}" />
+        <meta property="fb:app_id" content="{{ site.appID }}" />
+
+        <meta property="og:image" content="" />
+        <meta property="og:description" content="{{ site.description }}" />
+        <meta name="description" content="{{ site.description }}">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="{{ "/assets/img/share-icons/apple-icon-57x57.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="60x60" href="{{ "/assets/img/share-icons/apple-icon-60x60.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="72x72" href="{{ "/assets/img/share-icons/apple-icon-72x72.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ "/assets/img/share-icons/apple-icon-76x76.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="114x114" href="{{ "/assets/img/share-icons/apple-icon-114x114.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ "/assets/img/share-icons/apple-icon-120x120.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="144x144" href="{{ "/assets/img/share-icons/apple-icon-144x144.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ "/assets/img/share-icons/apple-icon-152x152.png" | relative_url }}">
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ "/assets/img/share-icons/apple-icon-180x180.png" | relative_url }}">
+        <link rel="icon" type="image/png" sizes="192x192"  href="{{ "/assets/img/share-icons/android-icon-192x192.png" | relative_url }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ "/assets/img/share-icons/favicon-32x32.png" | relative_url }}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{{ "/assets/img/share-icons/favicon-96x96.png" | relative_url }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ "/assets/img/share-icons/favicon-16x16.png" | relative_url }}">
+        <link rel="manifest" href="/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+
+        <link href="{{ "/assets/vendor/normalize/normalize.css" | relative_url }}" rel="stylesheet">
+        <link href="{{ "/assets/css/global.css" | relative_url }}" rel="stylesheet">
+
+        <script src="{{ "/assets/vendor/modernizr/modernizr.custom.min.js" | relative_url }}"></script>
+
+    </head>
+
+    <body>
+
+        {% include analytics.html %}
+
+        <header class="c-header o-island" role="banner">
+
+            <div class="o-container">
+                <div class="c-header__content">
+                  <div class="c-header__block">
+                    <a href="{{ "/" | relative_url }}" rel="home">
+                      <img src="{{ "/assets/img/bhsb-header.png" | relative_url }}" class="u-img-respond u-flush">
+                      <h1 class="c-heading-page u-sr-only">Bounty Hunter Space Besties</h1>
+                    </a>
+                  </div>
+                  <div class="c-header__block">
+                    <img src="{{ "/assets/img/updates-thursday.jpg" | relative_url }}" class="u-img-respond u-flush">
+                  </div>
+                </div>
+            </div>
+
+            <nav id="site-navigation" class="c-nav u-text-center" role="navigation">
+                <div class="o-container">
+                    <div class="menu-main-navigation-container">
+                      <ul id="menu-main-navigation" class="menu">
+                        {% for item in site.data.navigation %}
+                          <li>
+                            <a href="{{ item.link }}" {% if item.target%}target="{{ item.target }}"{% endif %}>{{ item.text }}</a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                </div>
+              </div>
+            </nav><!-- #site-navigation -->
+
+    	</header>

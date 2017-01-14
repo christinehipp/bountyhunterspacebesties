@@ -1,0 +1,37 @@
+///
+/// Retrieve z-index value from sass map $z-index-config
+///
+/// @param {string} $element - Element to return z-index value from $z-index-config.
+///
+/// @require {variable} $z-index-config
+///
+/// @ignore
+/// [1] Check if $element exists in $z-index-config.
+/// [2] If not pass an error.
+///
+@function z-index($element) {
+
+    // [1]
+    @if map-has-key($z-index-config, $element) {
+
+        @return map-get($z-index-config, $element);
+
+    } @else {
+
+        @warn "`#{$element}` does not have a value set in `#{$z-index-config}`. (Keys: #{map-keys($z-index-config)})"; // [2]
+        @return null;
+
+    }
+
+}
+
+
+
+
+
+///
+// Alias for z-index()
+///
+@function z($args...) {
+    @return z-index($args...);
+}

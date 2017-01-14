@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    #VISIBILITY UTILITIES
+\*------------------------------------*/
+
+/**
+ * Visibility classes for all breakpoints
+ */
+.u-hidden {
+
+    @include loop-breakpoints(true) {
+        display: none;
+    }
+
+}
+
+
+
+
+
+/**
+ * Hide the entire tag and it's contents except for screen readers
+ */
+.u-sr-only {
+    @include sr-only();
+}

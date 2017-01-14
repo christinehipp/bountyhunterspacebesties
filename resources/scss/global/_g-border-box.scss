@@ -1,0 +1,15 @@
+/*------------------------------------*\
+    #BORDER BOX
+\*------------------------------------*/
+
+/**
+ * Apply global border box.
+ */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+
+html {
+    box-sizing: border-box;
+}

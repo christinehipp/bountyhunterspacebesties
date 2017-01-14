@@ -1,0 +1,197 @@
+///
+// Breakpoints
+//
+// Add vertical media queries by adding a 'vertical' property to the list
+//
+// 'short':   480px vertical,
+// 'medium':  768px vertical,
+// 'tall':   1024px vertical
+//
+///
+$breakpoints-config: (
+    'xs':      480px,
+    'sm':      768px,
+    'md':     1024px,
+    'lg':     1200px,
+    'xl':     1500px
+);
+
+
+// Only generate '-only' modifiers if they're wanted. Prevents code bloat.
+$generate-only-modifiers:     false;
+
+
+
+
+
+///
+// Tweakpoints
+//
+// Extra component specific breakpoints only available through the @media mixin.
+///
+$tweakpoints-config: (
+    'header': '(min-width: 200px)'
+);
+
+
+
+
+///
+//
+// Because the breakpoints the project has are so important we need to
+// generate two maps that contain our media querie strings.
+//
+//
+// 1) $breakpoints-layout-config: `min-width` (mobile up) configuration map
+// for the layouts.
+//
+// $breakpoints-layout-config: (
+//     'xs': '(min-width: 480px)',
+//     'sm': '(min-width: 768px)',
+//     'md': '(min-width: 1024px)',
+//     'lg': '(min-width: 1200px)',
+//     'xl': '(min-width: 1500px)'
+// );
+//
+//
+// 2) $breakpoints-extended-config: Extends `$breakpoints-layout-config` by
+// adding `max-width` (desktop down), viewport specific `only`, vertical
+// media queries, print, retina, and screen media queries.
+//
+// $breakpoints-extended-config: (
+//     'screen': 'screen',
+//     'print': 'print',
+//     'high-res': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)',
+//
+//     'xs': '(min-width: 480px)',
+//     'less-than-xs': '(max-width: 479px)',
+//     'xs-only': 'screen and (min-width: 480px) and (max-width: 767px)',
+//
+//     'sm': '(min-width: 768px)',
+//     'less-than-sm': '(max-width: 767px)',
+//     'sm-only': 'screen and (min-width: 768px) and (max-width: 1023px)',
+//
+//     'md': '(min-width: 1024px)',
+//     'less-than-md': '(max-width: 1023px)',
+//     'md-only': 'screen and (min-width: 1024px) and (max-width: 1199px)',
+//
+//     'lg': '(min-width: 1200px)',
+//     'less-than-lg': '(max-width: 1199px)',
+//     'lg-only': 'screen and (min-width: 1200px) and (max-width: 1499px)',
+//
+//     'xl': '(min-width: 1500px)',
+//     'less-than-xl': '(max-width: 1499px)',
+//
+//     'short': '(min-height: 480px)',
+//     'less-than-short': '(max-height: 479px)',
+//     'short-only': 'screen and (min-height: 480px) and (max-height: 767px)',
+//
+//     'medium': '(min-height: 768px)',
+//     'less-than-medium': '(max-height: 767px)',
+//     'medium-only': 'screen and (min-height: 768px) and (max-height: 1023px)',
+//
+//     'tall': '(min-height: 1024px)',
+//     'less-than-tall': '(max-height: 1023px)'
+// );
+///
+
+
+
+
+
+// Container for generated media queries based of those listed in $breakpoints
+$breakpoints-layout-config: ();
+
+// Extended breakpoints for generating utility classes. Includes some defaults.
+$breakpoints-extended-config: ();
+
+$breakpoints-master-config: (
+    'screen':   'screen',
+    'print':    'print',
+    'high-res': '(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)'
+);
+
+
+
+
+// Get the keys for the breakpoints.
+$breakpoint-keys: map-keys($breakpoints-config);
+
+// Get a list of the breakpoints properties.
+$breakpoint-props: map-values($breakpoints-config);
+
+@each $breakpoint in $breakpoint-keys {
+
+    // Index of position in list
+    $index: index($breakpoint-keys, $breakpoint);
+
+    // Properties of the current breakpoint
+    $props: nth($breakpoint-props, $index);
+
+    // The size should be the first one.
+    $size: nth($props, 1);
+
+    // Assume a width
+    $direction: 'width';
+
+    // Loop through and check id the breakpoint has a vertical property.
+    @each $item in $props {
+        @if($item == vertical) {
+
+            // If so change to height
+            $direction: 'height';
+        }
+    }
+
+    // Add this breakpoint to the layout breakpoints
+    @if $direction == 'width' {
+        $breakpoints-layout-config: map-merge($breakpoints-layout-config, ('#{$breakpoint}': '(min-#{$direction}: #{$size})'));
+    }
+
+    // Generate Extended sizes
+    $breakpoint-min: ('#{$breakpoint}': '(min-#{$direction}: #{$size})');
+    $breakpoint-less-than: ('less-than-#{$breakpoint}': '(max-#{$direction}: #{$size - 1})');
+
+    // Add the generated sizes to the extended config map.
+    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-min);
+    $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-less-than);
+
+    // Only generate '-only' modifiers if they're wanted
+    @if $generate-only-modifiers {
+
+        @if $index < length($breakpoint-keys) {
+
+            $next-props: nth($breakpoint-props, $index + 1);
+            $next-size: nth($next-props, 1);
+
+            $next-direction: 'width';
+
+            @each $item in $next-props {
+                @if($item == vertical) {
+                    $next-direction: 'height';
+                }
+            }
+
+            // Check to make sure this direction matches the next item's direction.
+            // We don't want to mix vertical and horizontal
+            @if $direction == $next-direction {
+
+                $breakpoint-only: (
+                    '#{$breakpoint}-only': 'screen and (min-#{$direction}: #{$size}) and (max-#{$direction}: #{$next-size - 1})'
+                );
+
+                $breakpoints-extended-config: map-merge($breakpoints-extended-config, $breakpoint-only);
+
+            }
+
+        }
+
+    }
+
+}
+
+
+$breakpoints-master-config: map-merge($breakpoints-extended-config, $tweakpoints-config);
+
+
+

@@ -1,0 +1,51 @@
+/*------------------------------------*\
+    #MEDIA
+\*------------------------------------*/
+
+/**
+ * A generic layout with an item floated to the side and content block that
+ * doesn't wrap underneath it.
+ */
+.o-media {
+    @include clearfix();
+}
+
+
+
+
+
+/**
+ * Side element floats left and pushes content away. Stacks on mobile.
+ *
+ * [1] Flip the image to the right with modifier
+ */
+.o-media__graphic {
+    display: block;
+
+    @include media('xs') {
+        margin-right: spacer(1);
+        float: left;
+    }
+
+    // [1]
+    .o-media--flip & {
+
+        @include media('xs') {
+            margin: 0 0 0 spacer(1);
+            float: right;
+        }
+
+    }
+
+}
+
+
+
+
+
+/**
+ * Content Block
+ */
+.o-media__content {
+    overflow: hidden;
+}

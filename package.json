@@ -1,0 +1,45 @@
+{
+  "name": "Starter",
+  "description": "Haven Agency Starter",
+  "version": "1.6.0",
+  "repository": {
+    "type": "git",
+    "url": "git@bitbucket.org:haven_agency/starter.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "setup": "./setup.sh",
+    "build": "NODE_ENV=production gulp",
+    "build:dev": "gulp watch"
+  },
+  "devDependencies": {
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.11.1",
+    "browser-sync": "^2.10.0",
+    "browserify": "^13.1.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.4.3",
+    "gulp-eslint": "^3.0.1",
+    "gulp-inline-base64": "^0.1.4",
+    "gulp-jscs": "^3.0.2",
+    "gulp-sass": "^2.1.1",
+    "gulp-scss-lint": "^0.4.0",
+    "gulp-sourcemaps": "1.3.0",
+    "gulp-uglify": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0",
+    "webpack-stream": "^3.2.0"
+  },
+  "dependencies": {
+    "gulp": "gulpjs/gulp.git#4.0",
+    "gulp-load-plugins": "^1.1.0",
+    "jquery": "^1.11.3"
+  }
+}

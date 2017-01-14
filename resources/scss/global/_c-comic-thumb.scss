@@ -1,0 +1,28 @@
+/*------------------------------------*\
+    #COMIC THUMB
+\*------------------------------------*/
+
+
+.c-comic-thumb {
+    overflow: hidden;
+    display: block;
+    margin-bottom: spacer(1);
+    background: #fff;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+}
+
+.c-comic-thumb__cover-img {
+    margin: 0;
+    transition: timer('fast');
+    will-change: opacity;
+
+    .c-comic-thumb:hover & {
+        opacity: 0.8;
+        text-decoration: none;
+    }
+
+}

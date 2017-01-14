@@ -1,0 +1,20 @@
+/*------------------------------------*\
+    #LIST INLINE
+\*------------------------------------*/
+
+/**
+ * List with direct children displaying inline.
+ * [1] All items except the first have padding.
+ */
+.o-list-inline {
+    @include list-unstyled();
+
+    & > li {
+        display: inline-block;
+    }
+
+    & > li + li {
+        margin-left: 2px;
+    }
+
+}

@@ -1,0 +1,35 @@
+/*------------------------------------*\
+    #CONTAINER
+\*------------------------------------*/
+
+/// Container Width
+$container-width:       688px;
+
+/// Container left and right padding
+$container-padding:      15px;
+
+
+
+
+
+/**
+ * An outer container for site content. A container should never be a child of
+ * instance of it's self.
+ */
+.o-container {
+    padding: 0 $container-padding;
+    margin: 0 auto;
+    width: 100%;
+    max-width: $container-padding + $container-width + $container-padding;
+
+    @include media('sm') {
+        width: 90%;
+    }
+
+}
+
+
+.o-container--flush {
+    padding: 0;
+    max-width: $container-width;
+}

@@ -1,0 +1,23 @@
+/*------------------------------------*\
+    #COMIC PAGING
+\*------------------------------------*/
+
+.c-comic-paging {
+    text-align: center;
+    @include list-unstyled();
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.c-comic-paging__item {
+    display: inline-block;
+}
+
+.c-comic-paging__item--left {
+    float: left;
+}
+
+.c-comic-paging__item--right {
+    float: right;
+}

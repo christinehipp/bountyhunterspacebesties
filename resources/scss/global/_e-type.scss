@@ -1,0 +1,71 @@
+/*------------------------------------*\
+    #TYPOGRAPY
+\*------------------------------------*/
+
+/**
+ * Headings
+ *
+ * In most cases you should avoid styling a specific heading type to have
+ * custom distinct styles that would apply to all headings of that type.
+ * Instead create a new component like c-heading or c-title. This may not
+ * be the case when a CMS needs default headings to appear a specific way.
+ */
+@include headings() {
+    margin: 0 0 spacer(1);
+    font-size: 1.2rem;
+    line-height: $base-line-height;
+}
+
+
+
+
+/**
+ * Paragraphs
+ */
+p {
+    margin: 0 0 spacer(1);
+}
+
+
+
+
+
+/**
+ * Lists
+ */
+ul,
+ol,
+dl {
+    margin: 0 0 spacer(1);
+}
+
+
+
+
+
+/**
+ * Link Styles
+ */
+a {
+    color: color('link');
+    text-decoration: none;
+
+    @include link-states() {
+        color: #fff;
+        text-decoration: none;
+    }
+
+}
+
+
+
+
+
+/**
+ * Horizontal Rule
+ */
+hr {
+    margin: 0 0 spacer(1);
+    border: solid color('grey', '25');
+    border-width: 0 0 1px;
+}

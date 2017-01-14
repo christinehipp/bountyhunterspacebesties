@@ -1,0 +1,83 @@
+////
+/// VARIABLES
+////
+
+
+///
+// Base global defaults
+///
+$base-color:        #fff;
+$base-font-family:  sans-serif;
+$base-font-size:    14px;
+$base-line-height:  1.5;
+
+
+
+
+
+/// Generic spacing unit
+$spacing-unit:      20px;
+
+
+
+
+
+///
+// Colors
+///
+$color-config: (
+    'body':         #92667f,
+    'headings':     #00587d,
+    'primary':      #c09380,
+    'secondary':    #651F71,
+    'link':         #52f8d5,
+    'grey': (
+        'default':  #7f7f7f,
+        '25':       #bfbfbf,
+        '75':       #474747
+    ),
+    'twitter':      #00aced,
+    'facebook':     #3b5998,
+    'googleplus':   #dd4b39,
+    'pinterest':    #cb2027,
+    'linkedin':     #007bb6,
+    'youtube':      #b00,
+    'vimeo':        #aad450,
+    'tumblr':       #32506d,
+    'instagram':    #517fa4,
+    'flickr':       #ff0084,
+    'dribbble':     #ea4c89,
+    'quora':        #a82400,
+    'foursquare':   #0072b1,
+    'forrst':       #5b9a68,
+    'vk':           #45668e,
+    'wordpress':    #21759b,
+    'stumbleupon':  #eb4823,
+    'yahoo':        #7b0099,
+    'blogger':      #fb8f3d,
+    'soundcloud':   #ff3a00
+);
+
+
+
+
+
+///
+// Timer Map for @function timer();
+///
+$timer-config: (
+    'normal':   0.4s,
+    'slow':    0.75s,
+    'fast':    0.15s
+);
+
+
+
+
+
+///
+// Z-index Map for @function z();
+///
+$z-index-config: (
+    'example':   1000
+);

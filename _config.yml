@@ -14,21 +14,39 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: Bounty Hunter Space Besties
-email: your-email@domain.com
+email: andrewehipp@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+    Paget and Cory hate being Criminal Acquisition Specialists. They took this
+    job thinking they’d go on adventures and get to see the universe, but so far
+    they’ve just seen a lot of embezzlers and tax evaders. When they are
+    transferred to a new sector that’s known as the Wild West of the universe,
+    they see it as fresh start and a chance to see some real action, but they
+    find themselves in over their heads when the agree to clear the name of a
+    shapeshifter accused of murdering his magical peers. Hilarity ensues.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://bountyhunterspacebesties.com/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
+appID: 487393568131319
+patreon: https://www.patreon.com/chipp
 
 # Build settings
 markdown: kramdown
-theme: minima
 gems:
-  - jekyll-feed
+    - jekyll-feed
 exclude:
-  - Gemfile
-  - Gemfile.lock
+    - node_modules
+    - resources
+    - Gemfile
+    - Gemfile.lock
+sass:
+    style: compressed
+collections:
+    posts:
+        layout: post
+        output:   true
+        permalink: /blog/:year/:title/
+    comic:
+        layout: comic
+        output:   true
+        permalink: /comic/:title/

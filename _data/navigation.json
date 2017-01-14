@@ -1,0 +1,23 @@
+[
+    {
+        "text": "Archive",
+        "link": "/archive"
+    },
+    {
+        "text": "Blog",
+        "link": "/blog/"
+    },
+    {
+        "text": "About",
+        "link": "/about/"
+    },
+    {
+        "text": "Parteon",
+        "link": "https://www.patreon.com/chipp",
+        "target": "_blank"
+    },
+    {
+        "text": "Links",
+        "link": "/links/"
+    }
+]

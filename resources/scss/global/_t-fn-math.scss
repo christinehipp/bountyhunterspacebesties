@@ -1,0 +1,88 @@
+///
+/// Returns the number as a negative.
+///
+/// @param {number} $number
+///
+@function negative($number) {
+    @return -($number);
+}
+
+/// @alias negative
+@function neg($args...) {
+    @return negative($args...);
+}
+
+
+
+
+
+///
+/// Returns number as rounded half the number passed.
+///
+/// @param {number} $number
+///
+@function halve($number) {
+    @return round($number / 2);
+}
+
+/// @alias halve
+@function half($args...) {
+    @return halve($args...);
+}
+
+
+
+
+
+///
+/// Returns number as rounded quarter the number passed.
+///
+/// @param {number} $number
+///
+@function quarter($number) {
+    @return round($number / 4);
+}
+
+/// @alias quarter
+@function fourth($args...) {
+    @return quarter($args...);
+}
+
+
+
+
+
+///
+/// Returns as double the number passed.
+///
+/// @param {number} $number
+///
+@function double($number) {
+    @return $number * 2;
+}
+
+
+
+
+
+///
+/// Returns as triple the number passed.
+///
+/// @param {number} $number
+///
+@function triple($number) {
+    @return $number * 3;
+}
+
+
+
+
+
+///
+/// Returns as quadruple the number passed.
+///
+/// @param {number} $number
+///
+@function quadruple($number) {
+    @return $number * 4;
+}

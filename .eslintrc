@@ -1,0 +1,27 @@
+{
+    "env": {
+      "browser": true,
+    },
+    "parserOptions": {
+      "ecmaFeatures": {
+          "jsx": true,
+      }
+    },
+    "plugins": [
+    "react"
+    ],
+    "extends": ["airbnb-base", "plugin:react/recommended"],
+    "rules": {
+      "func-names": ["error", "never"],
+      "import/extensions": "off",
+      "indent": ["error", 4, { "SwitchCase": 1 }],
+      "jsx-uses-vars": "off",
+      "key-spacing": ["error", { "mode": "minimum" }],
+      "max-len": "off",
+      "no-console": "off",
+      "no-multi-spaces": ["error", { "exceptions": { "VariableDeclarator": true } }],
+      "no-multiple-empty-lines": ["error", { "max": 3 }],
+      "padded-blocks": "off",
+      "react/prop-types": 0,
+    }
+}

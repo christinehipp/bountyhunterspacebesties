@@ -1,0 +1,38 @@
+/// Spacer Function
+/// @param {List} $args - List of numbers or numbers
+/// @return {List} - Returns a list of up to four numbers.
+@function spacer($args...) {
+
+    // Limit of 4 args.
+    @if length($args) > 5 {
+
+        @warn '`spacer()` accepts a maximum of four properties just like `padding` and `margin`';
+        @return null;
+
+    } @else {
+
+        // Make a list to contain our values.
+        $props: ();
+
+        // The user can pass no parameters and just get back $spacing-unit.
+        @if length($args) == 0 {
+            @return $spacing-unit;
+        }
+
+        // For each parameter passed check if it's a variable (custom amount) and use that
+        @each $arg in $args {
+
+            // If the passed propety has units, just use it.
+            @if unitless($arg) {
+                $arg: $arg * $spacing-unit;
+            }
+
+            $props: append($props, $arg);
+
+        }
+
+        @return $props;
+
+    }
+
+}

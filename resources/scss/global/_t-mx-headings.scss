@@ -1,0 +1,43 @@
+///
+/// Generate a list of heading tags and classes.
+///
+/// @param {number} $from [1] - Highest heading value to start from.
+/// @param {number} $to [6] - Lowest heading value to start from.
+///
+/// @throw Error related message
+///
+/// @ignore
+/// [1] Create a placeholder that we will extend to.
+/// [2] Check that only 1-6 is being requested and $from is smaller than $to.
+/// [3] Loop through the range of $from and $to to generate and @extend the
+///     the correct classes to the placeholder.
+/// [4] $headings-counter prevents multiple headings() calls from combining on all
+///     previous %_heading-placeholder by making it unique for each call
+///
+
+$headings-counter: 0; // [4]
+
+@mixin headings($from: 1, $to: 6) {
+
+    // [1 & 4]
+    %_heading-placeholder-#{$headings-counter} {
+        @content;
+    }
+
+    // [2]
+    @if $from >= 1 and $to <= 6 and $from <= $to {
+
+        // [3]
+        @for $heading from $from through $to {
+
+            h#{$heading} {
+                @extend %_heading-placeholder-#{$headings-counter}; // [4]
+            }
+
+        }
+
+    }
+
+    $headings-counter: $headings-counter + 1; // [4]
+
+}
