@@ -1,3 +1,10 @@
+{% assign comicSlug = site.comic.last.comic %}
+{% assign comicData = site.data.comics[comicSlug] %}
+
+{% for page in comicData %}
+    {% assign pageCount = forloop.length %}
+{% endfor %}
+
 <script>
-    window.location = '{{ site.url }}{{ site.comic.last.url }}';
+    window.location = '{{ site.url }}{{ site.comic.last.url }}#{{ pageCount }}';
 </script>
