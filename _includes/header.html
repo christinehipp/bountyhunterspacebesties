@@ -63,16 +63,14 @@
 
             <nav id="site-navigation" class="c-nav u-text-center" role="navigation">
                 <div class="o-container">
-                    <div class="menu-main-navigation-container">
-                      <ul id="menu-main-navigation" class="menu">
+                    <ul class="c-nav__list">
                         {% for item in site.data.navigation %}
-                          <li>
-                            <a href="{{ item.link }}" {% if item.target%}target="{{ item.target }}"{% endif %}>{{ item.text }}</a>
-                          </li>
+                            <li class="c-nav__item">
+                                <a href="{{ item.link }}" {% if item.target%}target="{{ item.target }}"{% endif %} class="c-nav__link">{{ item.text }}</a>
+                            </li>
                         {% endfor %}
-                      </ul>
+                    </ul>
                 </div>
-              </div>
             </nav><!-- #site-navigation -->
 
     	</header>

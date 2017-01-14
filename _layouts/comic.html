@@ -53,12 +53,20 @@
                     <div class="c-comic__wrapper js-comic-wrapper-position">
                         {% for comicPage in comicData %}
                             <div class="c-comic__page js-comic-page" {% if forloop.index0 != 0 %}style="display: none;"{% endif %}>
-                                <img src="{{ "/assets/img/comics" | relative_url }}/{{ page.comic }}/{{ comicPage.image.full }}" alt="{{ page.title }}" width="688" height="1051" class="c-comic__page-img js-comic-page-image" />
+                                <img data-src="{{ "/assets/img/comics" | relative_url }}/{{ page.comic }}/{{ comicPage.image.full }}" alt="{{ page.title }}" width="688" height="1051" class="c-comic__page-img js-comic-page-image" />
                             </div>
                             {% assign comicPageCount = forloop.length %}
                         {% endfor %}
                     </div>
                 </div>
+            </div>
+            <div class="c-comic__controls">
+                <a href="#" class="c-comic__controls-button c-comic__controls-button--left js-comic-prev-link">
+                    <span class="u-sr-only">Prev View</span>
+                </a>
+                <a href="#" class="c-comic__controls-button c-comic__controls-button--right js-comic-next-link">
+                    <span class="u-sr-only">Next View</span>
+                </a>
             </div>
         </div>
 

@@ -84,3 +84,27 @@ $comic-page-height: 1050px;
 }
 
 
+.c-comic__controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+}
+
+.c-comic__controls-button {
+    display: block;
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}
+
+.c-comic__controls-button--left {
+    left: 0;
+}
+
+.c-comic__controls-button--right {
+    right: 0;
+}

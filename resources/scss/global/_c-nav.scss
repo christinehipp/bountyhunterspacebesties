@@ -21,7 +21,7 @@
 
 }
 
-.menu {
+.c-nav__list {
     @include list-unstyled();
     display: flex;
     justify-content: space-between;
@@ -36,7 +36,6 @@
  *
  * [1] Stateful 'current' version of navigation item.
  */
-.menu-item,
 .c-nav__item {
     flex-grow: 1;
     display: block;
@@ -52,11 +51,6 @@
  */
 .c-nav__link {
     display: block;
-    color: color('link');
-}
-
-.menu-item a {
-    display: block;
     padding: 10px 0;
     width: 100%;
     color: color('link');
@@ -70,8 +64,4 @@
         text-decoration: none;
     }
 
-}
-
-.current-menu-item a {
-    color: #fff;
 }
