@@ -10,7 +10,7 @@ Paget and Cory took this job thinking they’d go on adventures and get to see t
 
 ## Updates Thursdays.
 
-![About the Author](http://s3-us-west-2.amazonaws.com/bhsb/wp-content/uploads/2016/05/21231216/12189481_993372474062051_1734079284230119667_o-300x300.jpg){: .right}
+![About the Author]({{ "/assets/img/about/the-author.jpg" | relative_url }}){: .right}
 
 ## About the Author
 
