@@ -1,8 +1,7 @@
 [
    {
       "image":{
-          "thumbnail":"cover-122x186.jpg",
-          "medium":"cover-688x1051.jpg",
+         "thumbnail":"cover-122x186.jpg",
          "full":"cover.jpg"
       },
       "views":[
@@ -22,8 +21,7 @@
    },
    {
       "image":{
-          "thumbnail":"001-122x186.jpg",
-          "medium":"001-688x1051.jpg",
+         "thumbnail":"001-122x186.jpg",
          "full":"001.jpg"
       },
       "views":[
@@ -73,8 +71,7 @@
    },
    {
       "image":{
-          "thumbnail":"002-122x186.jpg",
-          "medium":"002-688x1051.jpg",
+         "thumbnail":"002-122x186.jpg",
          "full":"002.jpg"
       },
       "views":[
@@ -112,8 +109,7 @@
    },
    {
       "image":{
-          "thumbnail":"003-122x186.jpg",
-          "medium":"003-688x1051.jpg",
+         "thumbnail":"003-122x186.jpg",
          "full":"003.jpg"
       },
       "views":[
@@ -175,8 +171,7 @@
    },
    {
       "image":{
-          "thumbnail":"004-122x186.jpg",
-          "medium":"004-688x1051.jpg",
+         "thumbnail":"004-122x186.jpg",
          "full":"004.jpg"
       },
       "views":[
@@ -226,8 +221,7 @@
    },
    {
       "image":{
-          "thumbnail":"005-122x186.jpg",
-          "medium":"005-688x1051.jpg",
+         "thumbnail":"005-122x186.jpg",
          "full":"005.jpg"
       },
       "views":[
@@ -259,8 +253,7 @@
    },
    {
       "image":{
-          "thumbnail":"006-122x186.jpg",
-          "medium":"006-688x1051.jpg",
+         "thumbnail":"006-122x186.jpg",
          "full":"006.jpg"
       },
       "views":[
@@ -310,8 +303,7 @@
    },
    {
       "image":{
-          "thumbnail":"007-122x186.jpg",
-          "medium":"007-688x1051.jpg",
+         "thumbnail":"007-122x186.jpg",
          "full":"007.jpg"
       },
       "views":[
@@ -331,8 +323,7 @@
    },
    {
       "image":{
-          "thumbnail":"008-122x186.jpg",
-          "medium":"008-688x1051.jpg",
+         "thumbnail":"008-122x186.jpg",
          "full":"008.jpg"
       },
       "views":[
@@ -382,8 +373,7 @@
    },
    {
       "image":{
-          "thumbnail":"009-122x186.jpg",
-          "medium":"009-688x1051.jpg",
+         "thumbnail":"009-122x186.jpg",
          "full":"009.jpg"
       },
       "views":[
@@ -421,8 +411,7 @@
    },
    {
       "image":{
-          "thumbnail":"010-122x186.jpg",
-          "medium":"010-688x1051.jpg",
+         "thumbnail":"010-122x186.jpg",
          "full":"010.jpg"
       },
       "views":[
@@ -472,8 +461,7 @@
    },
    {
       "image":{
-          "thumbnail":"011-122x186.jpg",
-          "medium":"011-688x1051.jpg",
+         "thumbnail":"011-122x186.jpg",
          "full":"011.jpg"
       },
       "views":[
@@ -523,8 +511,7 @@
    },
    {
       "image":{
-          "thumbnail":"012-122x186.jpg",
-          "medium":"012-688x1051.jpg",
+         "thumbnail":"012-122x186.jpg",
          "full":"012.jpg"
       },
       "views":[
@@ -568,8 +555,7 @@
    },
    {
       "image":{
-          "thumbnail":"013-122x186.jpg",
-          "medium":"013-688x1051.jpg",
+         "thumbnail":"013-122x186.jpg",
          "full":"013.jpg"
       },
       "views":[
@@ -625,8 +611,7 @@
    },
    {
       "image":{
-          "thumbnail":"014-122x186.jpg",
-          "medium":"014-688x1051.jpg",
+         "thumbnail":"014-122x186.jpg",
          "full":"014.jpg"
       },
       "views":[
@@ -676,8 +661,7 @@
    },
    {
       "image":{
-          "thumbnail":"015-122x186.jpg",
-          "medium":"015-688x1051.jpg",
+         "thumbnail":"015-122x186.jpg",
          "full":"015.jpg"
       },
       "views":[
@@ -727,8 +711,7 @@
    },
    {
       "image":{
-          "thumbnail":"016-122x186.jpg",
-          "medium":"016-688x1051.jpg",
+         "thumbnail":"016-122x186.jpg",
          "full":"016.jpg"
       },
       "views":[
@@ -790,8 +773,7 @@
    },
    {
       "image":{
-          "thumbnail":"017-122x186.jpg",
-          "medium":"017-688x1051.jpg",
+         "thumbnail":"017-122x186.jpg",
          "full":"017.jpg"
       },
       "views":[
@@ -847,8 +829,7 @@
    },
    {
       "image":{
-          "thumbnail":"018-122x186.jpg",
-          "medium":"018-688x1051.jpg",
+         "thumbnail":"018-122x186.jpg",
          "full":"018.jpg"
       },
       "views":[
@@ -916,8 +897,7 @@
    },
    {
       "image":{
-          "thumbnail":"019-122x186.jpg",
-          "medium":"019-688x1051.jpg",
+         "thumbnail":"019-122x186.jpg",
          "full":"019.jpg"
       },
       "views":[
@@ -961,8 +941,7 @@
    },
    {
       "image":{
-          "thumbnail":"020-122x186.jpg",
-          "medium":"020-688x1051.jpg",
+         "thumbnail":"020-122x186.jpg",
          "full":"020.jpg"
       },
       "views":[
