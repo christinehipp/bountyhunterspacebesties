@@ -21,4 +21,6 @@ gem "jekyll", "3.3.1"
 # If you have any plugins, put them here!
 group :jekyll_plugins do
     gem "jekyll-feed", "~> 0.6"
+    gem "jekyll-sitemap", "1.0.0"
+    gem "jekyll-admin", "0.2.0"
 end

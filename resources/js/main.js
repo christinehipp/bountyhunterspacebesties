@@ -1,8 +1,8 @@
 /* jshint esversion: 6 */
-import $ from 'jquery';
-
 const ga = window.ga || function () {};
 const Hammer = window.Hammer || function () {};
+
+
 
 const setCookie = function (cname, cvalue, exdays) {
 
@@ -14,6 +14,8 @@ const setCookie = function (cname, cvalue, exdays) {
     document.cookie = `${cname}=${cvalue}; ${expires}; path=/`;
 
 };
+
+
 
 const getCookie = function (cname) {
 
@@ -34,9 +36,13 @@ const getCookie = function (cname) {
 
 };
 
+
+
 const isDesktop = function () {
     return window.matchMedia('(min-width: 768px)').matches;
 };
+
+
 
 const forEach = function (array, callback, scope) {
 
@@ -45,8 +51,6 @@ const forEach = function (array, callback, scope) {
     }
 
 };
-
-
 
 
 
@@ -312,9 +316,7 @@ const Comic = function (comicNode) {
 
     const positionPage = () => {
 
-        $('html, body').animate({
-            scrollTop: $('#comic').offset().top - 20
-        }, 300);
+        document.body.scrollTop = document.querySelector('#comic').offsetTop - 20;
 
     };
 
@@ -485,16 +487,6 @@ const Comic = function (comicNode) {
                 updatePage();
             }, false);
 
-            // var hammertime = new Hammer(comicNode);
-            //
-            // hammertime.on('swiperight', function (ev) {
-            //     prevLinkNodeList[0].click();
-            // });
-            //
-            // hammertime.on('swipeleft tap', function (ev) {
-            //     nextLinkNodeList[0].click();
-            // });
-
             if (getCookie('dynamicViewsState') == '1' || !isDesktop()) {
                 toggleDynamicViews(true);
             }
@@ -509,8 +501,8 @@ const Comic = function (comicNode) {
     };
 
     return {
-        state: state,
-        init: init
+        state,
+        init
     };
 
 };
@@ -527,23 +519,31 @@ if (comicNode) {
 
 }
 
-document.querySelector('.js-share-facebook').addEventListener('click', function () {
+const shareFacebookNode = document.querySelector('.js-share-facebook');
 
-    FB.ui({
-      method: 'share',
-      href: URL,
-    }, function (response) {});
+if (shareFacebookNode) {
 
-    if (ga) {
-        ga('send', 'event', 'Social', 'facebook');
-    }
+    document.querySelector('.js-share-facebook').addEventListener('click', function () {
 
-});
+        FB.ui({
+          method: 'share',
+          href: URL,
+        }, function (response) {});
 
-document.querySelector('.js-share-twitter').addEventListener('click', function () {
+        if (ga) {
+            ga('send', 'event', 'Social', 'facebook');
+        }
 
-    if (ga) {
-        ga('send', 'event', 'Social', 'twitter');
-    }
+    });
 
-});
+}
+
+const shareTwitterNode = document.querySelector('.js-share-twitter');
+
+if (shareTwitterNode) {
+    shareTwitterNode.addEventListener('click', function () {
+        if (ga) {
+            ga('send', 'event', 'Social', 'twitter');
+        }
+    });
+}
